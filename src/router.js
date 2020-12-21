@@ -1,25 +1,33 @@
 import vueRouter from 'vue-router'
-import App from './App'
-import Ocupacion from './components/Ocupacion'
-import CrearReserva from'./components/CrearReserva'
+import App from "./App"
+import VerReservas from "./components/VerReservas"
+import CrearReserva from "./components/CrearReserva"
+import Inicio from "./components/Inicio";
 
 const router=new vueRouter({
-    mode:'history',
-    base:__dirname,
-    routes:[
+      routes:[
         
         {
-            path:'/reservas/ocupacion',
-            name:"ocupacion",
-            component:Ocupacion
+
+            path:'/reservas/inicio',
+            name:"Inicio",
+            component:Inicio
+        },
+        {
+            
+            path:'/reservas/ver-reservas',
+            name:"VerReservas",
+            component:VerReservas
 
         },
 
         {
             path:'/reservas/crear',
-            name:"crear-reserva",
+            name:"CrearReserva",
             component:CrearReserva
         },
+
+     
 
     ],
 })
