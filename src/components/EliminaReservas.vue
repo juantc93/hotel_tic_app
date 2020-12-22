@@ -1,20 +1,12 @@
 <template>
-  <div id="creaReserva">
-    <h2>Agregar Reserva</h2>
+  <div id="eliminaReservas">
+    <h2>Eliminar Reserva</h2>
     <label for="">Número de habitación</label>
     <input type="number" v-model="habitacion_id" />
     <label for="">Nombre completo</label>
     <input type="text" v-model="nombre" />
-    <label for="start">Fecha de inicio:</label>
-    <input type="date" id="start" v-model="fecha_inicio"
-       value="2020-12-24"
-       min="2020-12-24" max="2021-12-31">
-    <label for="end">Fecha fin:</label>
-    <input type="date" id="end" v-model="fecha_fin"
-       value="2020-12-24"
-       min="2020-12-24" max="2021-12-31">
-    <h4>¡Gracias!</h4>
-    <button v-on:click="agregarReserva">Confirmar</button>
+        <h4>¿Estás Seguro?</h4>
+    <button v-on:click="EliminaReservas">Confirmar</button>
   </div>
 </template>
 
@@ -22,26 +14,26 @@
 <script>
 import axios from 'axios';
 export default {
-    name: "agregarReserva",
+    name: "EliminaReservas",
     data:function(){
         return{
           habitacion_id: "",
-          nombre: "",
+          usuario_id: "",
           fecha_inicio: "",
           fecha_fin: "",
             
         };
     },
     methods: {
-      agregarReserva: function() {
+      EliminaReservas: function() {
         var datosJson = {
-          "habitacion_id": this.habitacion_id,
-          "usuario_id": this.nombre,
-          "fecha_inicio": this.fecha_inicio,
-          "fecha_fin": this.fecha_fin
-          };
+            "habitacion_id": 1,
+            "usuario_id": "prueba",
+            "fecha_inicio": "2020-01-01",
+            "fecha_fin": "2020-01-01"
+            };
         axios
-            .post("https://backed-sprintiii-misiontic2022.herokuapp.com/reservas/crear", datosJson)
+            .delete("https://backed-sprintiii-misiontic2022.herokuapp.com/reservas/eliminar", datosJson)
             .then(response => {
             alert(response.data.mensaje);
             })
@@ -56,13 +48,13 @@ export default {
 
 <style>
 
-#creaReserva {
+#eliminaReservas {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 label {
@@ -77,5 +69,3 @@ label {
 
 
 </style>
-
-   

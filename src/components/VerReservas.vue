@@ -31,7 +31,7 @@ export default {
   },
   beforeCreate: function() {
     axios
-      .get("https://prueba-backend-retoii-mintic.herokuapp.com/reservas/ver-reservas/")
+      .get("https://backed-sprintiii-misiontic2022.herokuapp.com/reservas/ver-reservas/")
       .then(response => {
         this.lista_reservas_resumida = response.data;
       })

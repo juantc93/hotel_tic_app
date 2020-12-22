@@ -15,6 +15,7 @@
         <button v-on:click="Inicio"> Inicio </button>
         <button v-on:click="VerReservas"> Ver Reservas </button>
         <button v-on:click="CrearReserva"> Crear Reserva </button>
+          <button v-on:click="EliminaReservas"> Eliminar Reserva </button>
       </nav>
     </div>
 
@@ -26,6 +27,7 @@
 import VerReservas from "./components/VerReservas";
 import CrearReserva from "./components/CrearReserva";
 import Inicio from "./components/Inicio";
+import EliminaReservas from "./components/EliminaReservas";
 
 
 export default{
@@ -41,11 +43,16 @@ export default{
       CrearReserva: function() {
       this.$router.push({ name: "CrearReserva"});
     },
+
+     EliminaReservas: function() {
+      this.$router.push({ name: "EliminaReservas"});
+    }
   },
    components:{
     Inicio,  
     VerReservas, 
-    CrearReserva,   
+    CrearReserva,
+    EliminaReservas   
   },
   created: function() {
     this.$router.push({ name: "Inicio"});
